@@ -1,0 +1,112 @@
+<!doctype html>
+<html class="no-js" lang="">
+<style>
+  header{
+    background-color: #555555;
+    width: auto;
+    padding: 40px;
+    font-family: Bahnschrift,serif;
+    font-size: 20px;
+  }
+  .body{
+    background-color: #222222;
+    color: #cccccc;
+  }
+  .helyek{
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
+    border: 2px solid white;
+    border-radius: 20px;
+    padding: 30px;
+    margin: 200px auto;
+    font-family:"Goudy Stout",serif;
+    background-color: brown;
+  }
+  .helyek button{
+    font-size: 20px;
+    color: white;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 30px;
+    background-color: #222222;
+    transition: 50ms;
+  }
+  .helyek button:active{
+    background-color: #444444;
+    transition: 50ms;
+  }
+  .hordotablazat:hover{
+    background-color: #cccccc;
+    color: #222222;
+    transition: 150ms;
+  }
+  .rejtett{
+    display: none !important;
+  }
+  .erleles{
+    background-color: brown;
+    border: 2px solid white;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  .erleles td{
+    margin: 10px;
+    background-color: white;
+    border: 5px solid #222222;
+    padding: 20px;
+    border-radius: 20px;
+  }
+  .kontener{
+    display: flex;
+    align-items: center;
+  }
+</style>
+<header>
+  <table>
+    <tr>
+      <td>
+        SÖR: <span id="sorszam">0</span>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        PÉNZ: <span id="penz">0</span>
+      </td>
+    </tr>
+    <tr>
+      <td class="headercuccok">
+        <button id="eladas">ELADÁS</button>
+      </td>
+    </tr>
+
+  </table>
+
+</header>
+<body class="body">
+<div class="kontener">
+  <table class="erleles">
+    <tr>
+      <td class="hordotablazat"><button id="vasarlas1">vasarlas1</button><button id="erlelesGomb1">ÉRLELÉS</button><span id="visszaszamlalo1">03</span></td>
+    </tr>
+    <tr>
+      <td  class="hordotablazat" id="hordocella2"><button id="vasarlas2">vasarlas2</button><button id="erlelesGomb2">ÉRLELÉS</button><span id="visszaszamlalo2">05</span></td>
+    </tr>
+    <tr>
+      <td class="hordotablazat" id="hordocella3"><button id="vasarlas3">vasarlas3</button><button id="erlelesGomb3">Érlelés</button><span id="visszaszamlalo3">10</span></td>
+    </tr>
+  </table>
+  <table class="helyek">
+    <tr>
+      <td><button id="hely1">Hely</button></td>
+      <td><button id="hely2">Hely</button></td>
+      <td><button id="hely3">Hely</button></td>
+    </tr>
+  </table>
+</div>
+  <script src="js/app.js">
+
+  </script>
+</body>
+
+</html>

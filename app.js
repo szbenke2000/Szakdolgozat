@@ -111,7 +111,10 @@ eladasGomb.addEventListener('click', function (){
   sorszamid.textContent = szamlalo;
   penz.textContent = penzecske;
 })
-const helyGomb1 = document.getElementById('hely1');
+let helyGomb1= document.getElementById('hely1');
+let helyGomb2= document.getElementById('hely2');
+let helyGomb3= document.getElementById('hely3');
+/*
 function helyKivalasztva(helyId) {
   const helygomb = document.getElementById(helyId);
   if (szamlalo > 0 && helygomb.textContent !== "sör") {
@@ -123,6 +126,45 @@ function helyKivalasztva(helyId) {
     console.log("már van sör");
   }
 }
+*/
+const inventory = document.getElementById('inv');
+let kivalasztottHely = null;
+function helyKivalasztva(helyId) {
+  inventory.classList.remove('rejtett');
+  kivalasztottHely = helyId;
+}
 helyGomb1.addEventListener('click', function (){
-  helyKivalasztva("hely1")
+  helyKivalasztva("hely1");
 })
+helyGomb2.addEventListener('click', function (){
+  helyKivalasztva("hely2")
+})
+helyGomb3.addEventListener('click', function (){
+  helyKivalasztva("hely3")
+})
+invSlotButton1= document.getElementById('invSlotButton1');
+invSlotButton2= document.getElementById('invSlotButton2');
+invSlotButton3= document.getElementById('invSlotButton3');
+function targyKivalasztasa(invId) {
+  invId = document.getElementById(invId);
+  const hely = document.getElementById(kivalasztottHely);
+  const kepHelyen = document.createElement("img")
+  kepHelyen.src = invId.src;
+  kepHelyen.alt = invId.alt;
+  kepHelyen.style.width = invId.style.width;
+  kepHelyen.style.height = invId.style.height;
+  hely.textContent = "";
+  hely.appendChild(kepHelyen);
+  inventory.classList.add('rejtett');
+}
+invSlotButton1.addEventListener('click', function (){
+
+  targyKivalasztasa("invId1")
+})
+invSlotButton2.addEventListener('click', function (){
+  targyKivalasztasa("invId2")
+})
+invSlotButton3.addEventListener('click', function (){
+  targyKivalasztasa("invId3")
+})
+

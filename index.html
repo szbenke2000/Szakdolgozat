@@ -61,6 +61,23 @@
     display: flex;
     align-items: center;
   }
+  .inventory-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 70px);
+    border: 3px solid white;
+    background-color: #b3d4fc;
+    gap: 5px;
+    justify-content: center;
+  }
+  .slot{
+    width: 60px;
+    height: 100px;
+    background-color: blue;
+    border: 1px solid white;
+    justify-content: center;
+    text-align: center;
+    align-content: center;
+  }
 </style>
 <header>
   <table>
@@ -104,9 +121,19 @@
     </tr>
   </table>
 </div>
-  <script src="js/app.js">
+<div class="inventory-grid rejtett" id="inv">
+  <button id="invSlotButton1"><div class="slot" ><img id="invId1" style="width: 40px; height: 90px" src="kepek/kobambi.png" alt="kobambi"></div></button>
+  <button id="invSlotButton2"><div class="slot" ><img id="invId2" style="width: 40px; height: 90px" src="kepek/dreher.png" alt="kobambi"></div></button>
+  <button id="invSlotButton3"><div class="slot" ><img id="invId3" style="width: 40px; height: 90px" src="kepek/pecsisor.png" alt="kobambi"></div></button>
+</div>
+<table>
+  <tr>
+    <td></td>
+  </tr>
+</table>
 
-  </script>
+
+  <script src="js/app.js"></script>
 </body>
 
 </html>

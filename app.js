@@ -18,6 +18,10 @@ const visszaszamlalo1 = document.getElementById('visszaszamlalo1');
 const visszaszamlalo2 = document.getElementById('visszaszamlalo2');
 const visszaszamlalo3 = document.getElementById('visszaszamlalo3');
 
+const vasarlasMegerosites = document.getElementById('vasarlasMegerosites');
+const dialog = document.getElementById('dialog');
+const dollar = document.getElementById('$$$');
+
 penz.textContent = penzecske;
 erlelesGomb1.style.display = 'none';
 visszaszamlalo1.style.display = 'none';
@@ -31,6 +35,9 @@ function HordoVasarlas(ar, hordoVasarlasGombId, melyikHordoGombId,visszaszamlalo
     const visszaszamlalo = document.getElementById(visszaszamlaloId);
     const melyikHordoGomb = document.getElementById(melyikHordoGombId);
     const kovetkezoHordo = document.getElementById(kovetkezoHordoId);
+    const dollar = document.getElementById('$$$');
+    dollar.textContent = ar + "$";
+    console.log(ar + "$");
     if (penzecske>=ar) {
       penzecske-=ar;
       penz.textContent = penzecske;
@@ -41,9 +48,12 @@ function HordoVasarlas(ar, hordoVasarlasGombId, melyikHordoGombId,visszaszamlalo
       }
     }
 }
-
+function dialogElokeszites(ar){
+  dollar.textContent = ar + "$";
+}
 vasarlas1gomb.addEventListener('click', function(){
-  HordoVasarlas(10, "vasarlas1","erlelesGomb1", "visszaszamlalo1", "hordocella2")
+    dialogElokeszites(10)
+    dialog.showModal();
 })
 vasarlas2gomb.addEventListener('click', function(){
   HordoVasarlas(20, "vasarlas2", "erlelesGomb2", "visszaszamlalo2", "hordocella3")
@@ -52,6 +62,10 @@ vasarlas3gomb.addEventListener('click', function(){
   HordoVasarlas(100, "vasarlas3", "erlelesGomb3", "visszaszamlalo3")
 })
 
+vasarlasMegerosites.addEventListener('click', function(){
+  HordoVasarlas(10, "vasarlas1","erlelesGomb1", "visszaszamlalo1", "hordocella2")
+  dialog.close();
+})
 function idoRendezese(mp) {
   let ora =  Math.floor((mp/60)/60);
   let perc = Math.floor((mp/60)-ora*60);
@@ -145,6 +159,7 @@ helyGomb3.addEventListener('click', function (){
 invSlotButton1= document.getElementById('invSlotButton1');
 invSlotButton2= document.getElementById('invSlotButton2');
 invSlotButton3= document.getElementById('invSlotButton3');
+/*
 function targyKivalasztasa(invId) {
   invId = document.getElementById(invId);
   const hely = document.getElementById(kivalasztottHely);
@@ -157,8 +172,24 @@ function targyKivalasztasa(invId) {
   hely.appendChild(kepHelyen);
   inventory.classList.add('rejtett');
 }
-invSlotButton1.addEventListener('click', function (){
+*/
 
+function invLetrehozas(invSlotDbSzam) {
+  let id = 0
+  const inventory = document.getElementById('inv');
+  for (let i = 0; i < invSlotDbSzam; i++) {
+    const slot = document.createElement("button");
+    id++;
+    slot.id = "id"+id;
+    slot.className = "slot";
+    inventory.appendChild(slot);
+  }
+}
+function targyElhelyezes(){
+
+}
+invLetrehozas(36);
+invSlotButton1.addEventListener('click', function (){
   targyKivalasztasa("invId1")
 })
 invSlotButton2.addEventListener('click', function (){

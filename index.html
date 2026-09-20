@@ -3,8 +3,14 @@
 <style>
   header{
     background-color: #555555;
-    width: auto;
     padding: 40px;
+    font-family: Bahnschrift,serif;
+    font-size: 20px;
+  }
+  footer{
+    padding: 30px;
+    background-color: #555555;
+    text-align: center;
     font-family: Bahnschrift,serif;
     font-size: 20px;
   }
@@ -63,23 +69,30 @@
   }
   .inventory-grid{
     display: grid;
-    grid-template-columns: repeat(3, 70px);
+    grid-template-columns: repeat(6, 70px);
+    grid-template-rows: repeat(6, 100px);
     border: 3px solid white;
-    background-color: #b3d4fc;
+    background-color: gray;
     gap: 5px;
     justify-content: center;
+  }
+  .inventory-grid button:active{
+    background-color: black;
+    transition: 0.1s;
   }
   .slot{
     width: 60px;
     height: 100px;
-    background-color: blue;
+    background-color: brown;
     border: 1px solid white;
     justify-content: center;
     text-align: center;
     align-content: center;
   }
+
 </style>
 <header>
+  <div>
   <table>
     <tr>
       <td>
@@ -98,7 +111,7 @@
     </tr>
 
   </table>
-
+  </div>
 </header>
 <body class="body">
 <div class="kontener">
@@ -122,16 +135,16 @@
   </table>
 </div>
 <div class="inventory-grid rejtett" id="inv">
-  <button id="invSlotButton1"><div class="slot" ><img id="invId1" style="width: 40px; height: 90px" src="kepek/kobambi.png" alt="kobambi"></div></button>
-  <button id="invSlotButton2"><div class="slot" ><img id="invId2" style="width: 40px; height: 90px" src="kepek/dreher.png" alt="kobambi"></div></button>
-  <button id="invSlotButton3"><div class="slot" ><img id="invId3" style="width: 40px; height: 90px" src="kepek/pecsisor.png" alt="kobambi"></div></button>
-</div>
-<table>
-  <tr>
-    <td></td>
-  </tr>
-</table>
 
+</div>
+<dialog id="dialog">
+<p>Meg akarod vásárolni a terméket?</p>
+  <p id="$$$"></p>
+  <button style="text-align: center" id="vasarlasMegerosites">Vásárlás</button>
+</dialog>
+<footer>
+  <table>űőŰŐíéálÖÜÓ</table>
+</footer>
 
   <script src="js/app.js"></script>
 </body>

@@ -85,13 +85,13 @@ function Visszaszamlalas(MennyiIdeig, visszaSzamlaloId, erlelesGombId) {
     erlelesGomb.style.display = 'inline-block';
     visszaszamlalo.style.display = 'none';
     erlelesGomb.disabled = false;
-    targyHozzaadas("kepek/kobambi.png")
+    targyHozzaadas(randomKivalasztas(true, true))
     sorszamid.textContent = szamlalo;
   }, (MennyiIdeig*1000)+1000);
 }
 
 erlelesGomb1.addEventListener('click', function (){
-  Visszaszamlalas(3, "visszaszamlalo1", "erlelesGomb1");
+  Visszaszamlalas(1, "visszaszamlalo1", "erlelesGomb1");
 });
 erlelesGomb2.addEventListener('click', function() {
   Visszaszamlalas(2, "visszaszamlalo2","erlelesGomb2");
@@ -106,32 +106,7 @@ eladasGomb.addEventListener('click', function (){
   sorszamid.textContent = szamlalo;
   penz.textContent = penzecske;
 })
-let helyGomb1= document.getElementById('hely1');
-let helyGomb2= document.getElementById('hely2');
-let helyGomb3= document.getElementById('hely3');
-/*
-function helyKivalasztva(helyId) {
-  const helygomb = document.getElementById(helyId);
-  if (szamlalo > 0 && helygomb.textContent !== "sör") {
-    szamlalo--;
-    sorszamid.textContent = szamlalo;
-    helygomb.textContent = "sör";
-  }
-  if (helygomb.textContent === "sör") {
-    console.log("már van sör");
-  }
-}
-*/
 
-helyGomb1.addEventListener('click', function (){
-  helyKivalasztva("hely1");
-})
-helyGomb2.addEventListener('click', function (){
-  helyKivalasztva("hely2")
-})
-helyGomb3.addEventListener('click', function (){
-  helyKivalasztva("hely3")
-})
 invSlotButton1= document.getElementById('invSlotButton1');
 invSlotButton2= document.getElementById('invSlotButton2');
 invSlotButton3= document.getElementById('invSlotButton3');

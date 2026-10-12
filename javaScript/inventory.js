@@ -1,16 +1,16 @@
 let inventory;
 inventory = document.getElementById('inv');
-document.addEventListener("DOMContentLoaded", () => {
-  inventory = document.getElementById('inv');
-  // INVENTORY NAGYSÁG MEGADÁSA
-  // -----------------!!!!!!!!!!!!!------------------
-  invLetrehozas(36);
-  // -----------------!!!!!!!!!!!!!------------------
-});
+invLetrehozas(36);
+targyHozzaadas("kepek/kobambi.png")
+
 let kivalasztottHely = null;
-function helyKivalasztva(helyId) {
-  inventory.showModal();
+function helyKivalasztva(helyId, helySzamlaloId) {
   kivalasztottHely = helyId;
+  if (kivalasztottHely.querySelector('img')) {
+    kivalasztottHely.textContent = 'ÜRES';
+  } else {
+    inventory.showModal();
+  }
 }
 function invLetrehozas(invSlotDbSzam) {
   let id = 0
@@ -20,31 +20,52 @@ function invLetrehozas(invSlotDbSzam) {
     slot.id = "id"+id;
     slot.className = "slot";
     slot.addEventListener("click", function() {
-        kivalasztottHely.textContent = slot.id;
+      const slotKep = slot.querySelector("img");
+      if (slotKep && kivalasztottHely && !kivalasztottHely.querySelector('img')) {
+        kivalasztottHely.textContent = '';
+        const helyKep = document.createElement("img");
+        helyKep.src = slotKep.src;
+        helyKep.style.width = slotKep.style.width;
+        helyKep.style.height = slotKep.style.height;
+        kivalasztottHely.appendChild(helyKep);
         inventory.close();
+      }
     })
     inventory.appendChild(slot);
   }
 }
 
+szam = document.getElementById('szam');
+function penzTermeles(hely, begyujtGombId) {
+  let begyujtendoPenz = 0;
+  const szamlaloInternal = setInterval(function() {
+    begyujtendoPenz++;
+    hely.textContent = String(begyujtendoPenz);
+  },1000)
+}
+penzTermeles(szam)
 
 
 let helyGomb1= document.getElementById('hely1');
 let helyGomb2= document.getElementById('hely2');
 let helyGomb3= document.getElementById('hely3');
 
+let helyGombSzamlalo1= document.getElementById('helySzamlalo1');
+let helyGombSzamlalo2= document.getElementById('helySzamlalo2');
+let helyGombSzamlalo3= document.getElementById('helySzamlalo3');
+
+
+
 helyGomb1.addEventListener('click', function (){
-  helyKivalasztva(helyGomb1);
+  helyKivalasztva(helyGomb1, helyGombSzamlalo1);
 })
 helyGomb2.addEventListener('click', function (){
-  helyKivalasztva(helyGomb2);
+  helyKivalasztva(helyGomb2, helyGombSzamlalo2);
 })
 helyGomb3.addEventListener('click', function (){
-  helyKivalasztva(helyGomb3);
+  helyKivalasztva(helyGomb3, helyGombSzamlalo3);
 })
-//INVENTORY NAGYSÁG MEGADÁSA
-//-----------------!!!!!!!!!!!!!------------------
-//-----------------!!!!!!!!!!!!!------------------
+
 function randomKivalasztas(){
   let randomSzam = Math.random();
   if (randomSzam < 0.5) {
@@ -74,6 +95,21 @@ function targyHozzaadas(kepSrc){
     alert("NINCS AZ INVENTORYBAN HELY")
   }
 }
+bezaroGomb = document.getElementById('bezaroGomb');
+bezaroGomb.addEventListener('click', function (){
+  inventory.close();
+})
+
+ingyenPenzButton = document.getElementById('ingyenpenz');
+ingyenPenzButton.addEventListener('click', function (){
+  penzhozzaadas(20);
+})
+penzLevonasButton = document.getElementById('penzlevonas');
+penzLevonasButton.addEventListener('click', function (){
+  penzhozzaadas(-20);
+})
+
+
 
 
 

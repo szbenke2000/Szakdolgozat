@@ -1,9 +1,9 @@
 
 let szamlalo = 0;
-let penzecske = 30;
+let penzErtek = 30;
 
 const sorszamid = document.getElementById('sorszam');
-const penz = document.getElementById('penz');
+const penzMegjelenites = document.getElementById('penz');
 const eladasGomb = document.getElementById('eladas');
 
 const vasarlas1gomb = document.getElementById('vasarlas1');
@@ -22,7 +22,7 @@ const visszaszamlalo3 = document.getElementById('visszaszamlalo3');
 
 const dialog = document.getElementById('dialog');
 
-penz.textContent = penzecske;
+penzMegjelenites.textContent = penzErtek;
 erlelesGomb1.style.display = 'none';
 visszaszamlalo1.style.display = 'none';
 erlelesGomb2.style.display = 'none';
@@ -43,9 +43,8 @@ function HordoVasarlas(ar, hordoVasarlasGombId, melyikHordoGombId) {
 }
 const megerositoGomb = document.getElementById('megerositoGomb');
 megerositoGomb.addEventListener('click', function(){
-  if (penzecske>=kivalasztottAr) {
-    penzecske-=kivalasztottAr;
-    penz.textContent = penzecske;
+  if (penzErtek>=kivalasztottAr) {
+    penzLevonas(kivalasztottAr);
     const gombElem = document.getElementById(hordoVasarlasGomb);
     const hordoElem = document.getElementById(melyikHordoGomb);
     hordoElem.style.display = 'inline-block';
@@ -85,11 +84,10 @@ function Visszaszamlalas(MennyiIdeig, visszaSzamlaloId, erlelesGombId) {
     erlelesGomb.style.display = 'inline-block';
     visszaszamlalo.style.display = 'none';
     erlelesGomb.disabled = false;
-    targyHozzaadas(randomKivalasztas(true, true))
+    targyHozzaadas(randomKivalasztas())
     sorszamid.textContent = szamlalo;
   }, (MennyiIdeig*1000)+1000);
 }
-
 erlelesGomb1.addEventListener('click', function (){
   Visszaszamlalas(1, "visszaszamlalo1", "erlelesGomb1");
 });
@@ -101,10 +99,10 @@ erlelesGomb3.addEventListener('click', function() {
 });
 
 eladasGomb.addEventListener('click', function (){
-  penzecske += szamlalo*2;
+  penzErtek += szamlalo*2;
   szamlalo = 0;
   sorszamid.textContent = szamlalo;
-  penz.textContent = penzecske;
+  penzMegjelenites.textContent = penzecske;
 })
 
 invSlotButton1= document.getElementById('invSlotButton1');
@@ -124,6 +122,14 @@ function targyKivalasztasa(invId) {
   inventory.classList.add('rejtett');
 }
 */
+function penzhozzaadas (ertek) {
+  penzErtek += ertek;
+  penzMegjelenites.textContent = penzErtek;
+}
+function penzLevonas (ertek) {
+  penzErtek -= ertek;
+  penzMegjelenites.textContent = penzErtek;
+}
 
 
 

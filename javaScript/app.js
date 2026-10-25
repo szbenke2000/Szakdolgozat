@@ -131,6 +131,18 @@ function penzLevonas (ertek) {
   penzMegjelenites.textContent = penzErtek;
 }
 
+const targy1 = document.getElementById('targy1');
+function gyartas(helyId, targyId) {
+  let targyDb = 0;
+  if (helyId.querySelector("img")) {
+    setInterval(function () {
+      targyDb++
+      targyId.textContent = `${targyDb}`;
+      }, 1000)
+  }
+}
+
+gyartas('hely1')
 
 
 

@@ -49,25 +49,22 @@ megerositoGomb.addEventListener('click', function(){
     const hordoElem = document.getElementById(melyikHordoGomb);
     hordoElem.style.display = 'inline-block';
     gombElem.style.display = 'none';
+    const szuloTd = gombElem.closest('td');
+    if (szuloTd) {
+      szuloTd.classList.add('feloldva');
+    }
     dialog.close();
   } else {
     alert("NINCS PENZ, MAKE MORE!!!")
     dialog.close();
   }
 });
-vasarlas1gomb.addEventListener('click', function(){
-  HordoVasarlas(10, "vasarlas1", "erlelesGomb1", "visszaszamlalo1" )
-})
-vasarlas2gomb.addEventListener('click', function(){
-  HordoVasarlas(20, "vasarlas2", "erlelesGomb2", "visszaszamlalo2")
-})
-vasarlas3gomb.addEventListener('click', function(){
-  HordoVasarlas(100, "vasarlas3", "erlelesGomb3", "visszaszamlalo3")
-})
+
 
 function Visszaszamlalas(MennyiIdeig, visszaSzamlaloId, erlelesGombId) {
   const visszaszamlalo = document.getElementById(visszaSzamlaloId);
   const erlelesGomb = document.getElementById(erlelesGombId);
+  visszaszamlalo.textContent = MennyiIdeig
   visszaszamlalo.style.display = 'inline-block';
   erlelesGomb.style.display = 'none';
   erlelesGomb.disabled = true
@@ -84,20 +81,28 @@ function Visszaszamlalas(MennyiIdeig, visszaSzamlaloId, erlelesGombId) {
     erlelesGomb.style.display = 'inline-block';
     visszaszamlalo.style.display = 'none';
     erlelesGomb.disabled = false;
-    targyHozzaadas(randomKivalasztas())
+    italPorgetes()
     sorszamid.textContent = szamlalo;
   }, (MennyiIdeig*1000)+1000);
 }
 erlelesGomb1.addEventListener('click', function (){
-  Visszaszamlalas(1, "visszaszamlalo1", "erlelesGomb1");
+  Visszaszamlalas(10, "visszaszamlalo1", "erlelesGomb1");
 });
 erlelesGomb2.addEventListener('click', function() {
-  Visszaszamlalas(2, "visszaszamlalo2","erlelesGomb2");
+  Visszaszamlalas(300, "visszaszamlalo2","erlelesGomb2");
 });
 erlelesGomb3.addEventListener('click', function() {
-  Visszaszamlalas(1, "visszaszamlalo3", "erlelesGomb3");
+  Visszaszamlalas(5000, "visszaszamlalo3", "erlelesGomb3");
 });
-
+vasarlas1gomb.addEventListener('click', function(){
+  HordoVasarlas(10, "vasarlas1", "erlelesGomb1", "visszaszamlalo1" )
+})
+vasarlas2gomb.addEventListener('click', function(){
+  HordoVasarlas(500, "vasarlas2", "erlelesGomb2", "visszaszamlalo2")
+})
+vasarlas3gomb.addEventListener('click', function(){
+  HordoVasarlas(45000, "vasarlas3", "erlelesGomb3", "visszaszamlalo3")
+})
 eladasGomb.addEventListener('click', function (){
   penzErtek += szamlalo*2;
   szamlalo = 0;
@@ -144,6 +149,8 @@ function gyartas(helyId, targyId) {
 
 gyartas('hely1')
 
+function erleles() {
 
+}
 
 

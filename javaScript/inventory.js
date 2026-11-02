@@ -1,54 +1,18 @@
 let inventory;
 inventory = document.getElementById('inv');
 invLetrehozas(36);
-targyHozzaadas("kepek/kobambi.png")
 
 
 function invLetrehozas(invSlotDbSzam) {
-  let id = 0
   for (let i = 0; i < invSlotDbSzam; i++) {
     const slot = document.createElement("button");
-    id++;
-    slot.id = "id"+id;
+    slot.id = "slot"+(i+1);
     slot.className = "slot";
-    slot.addEventListener("click", function() {
-      const slotKep = slot.querySelector("img");
-      if (slotKep && !kivalasztottHely.querySelector('img')) {
-        kivalasztottHely.textContent = '';
-        const helyKep = document.createElement("img");
-        helyKep.src = slotKep.src;
-        helyKep.style.width = slotKep.style.width;
-        helyKep.style.height = slotKep.style.height;
-        kivalasztottHely.appendChild(helyKep);
-        gyartas(kivalasztottHely)
-        inventory.close();
-      }
-    })
     inventory.appendChild(slot);
   }
 }
 
-szam = document.getElementById('szam');
-function penzTermeles(hely, begyujtGombId) {
-  let begyujtendoPenz = 0;
-  const szamlaloInternal = setInterval(function() {
-    begyujtendoPenz++;
-    hely.textContent = String(begyujtendoPenz);
-  },1000)
-}
-penzTermeles(szam)
-
-function randomKivalasztas(){
-  let randomSzam = Math.random();
-  if (randomSzam < 0.5) {
-    return "kepek/kobambi.png"
-  }
-  else if (randomSzam > 0.5) {
-    return "kepek/dreher.png"
-  }
-}
-
-function targyHozzaadas(kepSrc){
+function targyHozzaadas(ital){
   let elsoUresSlot = null;
   const slotok = document.querySelectorAll('#inv .slot');
   for (let i = 0; i < slotok.length; i++) {
@@ -58,8 +22,11 @@ function targyHozzaadas(kepSrc){
     }
   }
   if (elsoUresSlot) {
+    elsoUresSlot.dataset.nev = ital.nev;
+    elsoUresSlot.dataset.csillag = ital.csillag;
+    elsoUresSlot.dataset.bevetel = ital.bevetel;
     const kep = document.createElement('img');
-    kep.src = kepSrc;
+    kep.src = ital.src;
     kep.style.width = '45px';
     kep.style.height = '90px';
     elsoUresSlot.appendChild(kep);

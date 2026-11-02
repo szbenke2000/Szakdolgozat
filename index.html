@@ -52,11 +52,6 @@
     background-color: #444444;
     transition: 50ms;
   }
-  .hordotablazat:hover{
-    background-color: #cccccc;
-    color: #222222;
-    transition: 150ms;
-  }
   .rejtett{
     display: none !important;
   }
@@ -64,15 +59,44 @@
     left: 0;
     background-color: brown;
     border: 2px solid white;
-    padding: 20px;
     border-radius: 10px;
   }
   .erleles td{
-    margin: 10px;
-    background-color: white;
-    border: 5px solid #222222;
-    padding: 20px;
-    border-radius: 20px;
+    position: relative;
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    color: #888888;
+  }
+  .erleles td::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("kepek/hordo_fektetett.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    filter:grayscale(40%) brightness(50%);
+    z-index: 0;
+    pointer-events: none;
+  }
+  .erleles td button {
+    position: relative;
+    z-index: 1;
+  }
+  .erleles td.feloldva::before {
+    filter: none;
+  }
+  .erleles td span {
+    position: relative;
+    z-index: 1;
+    font-size: 22px;
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 1px 1px 3px black;
   }
   .kontener{
     display: flex;
@@ -126,6 +150,36 @@
     background-color: #555555;
     flex-shrink: 0;
   }
+  #tooltip {
+    position: fixed;
+    display: none;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    border: 1px solid #ffd700;
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 13px;
+    font-family: Bahnschrift, sans-serif;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+    pointer-events: none; /* Nem akadályozza az egérmozgást */
+    z-index: 99999;       /* Mindig a dialógus és egyéb elemek felett marad */
+    line-height: 1.4;
+  }
+
+  #tooltip .tt-nev {
+    font-weight: bold;
+    text-transform: capitalize;
+    margin-bottom: 2px;
+  }
+
+  #tooltip .tt-csillag {
+    color: #ffcd1a;
+  }
+
+  #tooltip .tt-bevetel {
+    color: #34d399;
+    font-weight: bold;
+  }
   .targyDb{
     display: flex;
     justify-content: center;
@@ -134,8 +188,8 @@
   .helyek-grid{
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(3, 150px);
-    grid-template-rows: repeat(3, 200px);
+    grid-template-columns: repeat(3, 60px);
+    grid-template-rows: repeat(3, 60px);
     gap: 6px;
     padding: 6px;
     border: 3px solid white;
@@ -143,8 +197,8 @@
     width: fit-content;
   }
   .hely{
-    width: 150px;
-    height: 200px;
+    width: 60px;
+    height: 60px;
     background-color: purple;
     border: 2px solid white;
     border-radius: 8px;
@@ -157,6 +211,9 @@
   }
   .hely:active {
     background-color: mediumpurple;
+  }
+  .lezarva{
+
   }
 </style>
 <header>
@@ -189,13 +246,13 @@
 
   <table class="erleles">
     <tr>
-      <td class="hordotablazat"><button id="vasarlas1">vasarlas1</button><button id="erlelesGomb1">ÉRLELÉS</button><span id="visszaszamlalo1">03</span></td>
+      <td><button id="vasarlas1">Vásárlás</button><button id="erlelesGomb1">ÉRLELÉS</button><span id="visszaszamlalo1"></span></td>
     </tr>
     <tr>
-      <td  class="hordotablazat" id="hordocella2"><button id="vasarlas2">vasarlas2</button><button id="erlelesGomb2">ÉRLELÉS</button><span id="visszaszamlalo2">05</span></td>
+      <td><button id="vasarlas2">vasarlas2</button><button id="erlelesGomb2">ÉRLELÉS</button><span id="visszaszamlalo2"></span></td>
     </tr>
     <tr>
-      <td class="hordotablazat" id="hordocella3"><button id="vasarlas3">vasarlas3</button><button id="erlelesGomb3">Érlelés</button><span id="visszaszamlalo3">10</span></td>
+      <td><button id="vasarlas3">vasarlas3</button><button id="erlelesGomb3">Érlelés</button><span id="visszaszamlalo3"></span></td>
     </tr>
   </table>
 
@@ -213,12 +270,12 @@
 
   <button class="invGomb" id="invGomb"><img src="kepek/bakc_pack.png" alt=""></button>
 </footer>
-
   <script src="js/app.js"></script>
   <script src="js/Menusav.js"></script>
   <script src="js/idorendezes.js"></script>
   <script src="js/inventory.js"></script>
   <script src="js/helyek.js"></script>
+  <script src="js/italFozes.js"></script>
 
 </body>
 

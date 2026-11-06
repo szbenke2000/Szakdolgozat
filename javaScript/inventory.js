@@ -8,6 +8,17 @@ function invLetrehozas(invSlotDbSzam) {
     const slot = document.createElement("button");
     slot.id = "slot"+(i+1);
     slot.className = "slot";
+    slot.addEventListener("click", function(){
+      const slotKep = slot.querySelector("img");
+      if (kivalasztottHely && !kivalasztottHely.querySelector('img')) {
+        kivalasztottHely.innerHTML = "";
+        kivalasztottHely.innerHTML =
+          `
+        <img style="height: ${slotKep.style.height}; width: ${slotKep.style.width}" src="${slotKep.src}" alt="">
+        `;
+        inventory.close();
+      }
+    });
     inventory.appendChild(slot);
   }
 }

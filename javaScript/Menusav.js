@@ -1,8 +1,8 @@
 invGomb = document.getElementById('invGomb');
 const inventoryModal = document.getElementById('inv');
-function kaka() {
+function invmegnyitas() {
   inventoryModal.showModal();
 }
 invGomb.addEventListener('click', () => {
-    kaka();
+    invmegnyitas();
 })

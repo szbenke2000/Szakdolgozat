@@ -86,7 +86,7 @@ function Visszaszamlalas(MennyiIdeig, visszaSzamlaloId, erlelesGombId) {
   }, (MennyiIdeig*1000)+1000);
 }
 erlelesGomb1.addEventListener('click', function (){
-  Visszaszamlalas(10, "visszaszamlalo1", "erlelesGomb1");
+  Visszaszamlalas(1, "visszaszamlalo1", "erlelesGomb1");
 });
 erlelesGomb2.addEventListener('click', function() {
   Visszaszamlalas(300, "visszaszamlalo2","erlelesGomb2");
@@ -95,7 +95,7 @@ erlelesGomb3.addEventListener('click', function() {
   Visszaszamlalas(5000, "visszaszamlalo3", "erlelesGomb3");
 });
 vasarlas1gomb.addEventListener('click', function(){
-  HordoVasarlas(10, "vasarlas1", "erlelesGomb1", "visszaszamlalo1" )
+  HordoVasarlas(1, "vasarlas1", "erlelesGomb1", "visszaszamlalo1" )
 })
 vasarlas2gomb.addEventListener('click', function(){
   HordoVasarlas(500, "vasarlas2", "erlelesGomb2", "visszaszamlalo2")

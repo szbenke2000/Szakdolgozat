@@ -16,6 +16,8 @@ function invLetrehozas(invSlotDbSzam) {
           `
         <img style="height: ${slotKep.style.height}; width: ${slotKep.style.width}" src="${slotKep.src}" alt="">
         `;
+
+        rekeszbeTermeles();
         inventory.close();
       }
     });

@@ -20,7 +20,7 @@ const visszaszamlalo3 = document.getElementById('visszaszamlalo3');
 
 
 
-const dialog = document.getElementById('dialog');
+const megerosites = document.getElementById('megerosites');
 
 penzMegjelenites.textContent = penzErtek;
 erlelesGomb1.style.display = 'none';
@@ -38,7 +38,7 @@ function HordoVasarlas(ar, hordoVasarlasGombId, melyikHordoGombId) {
   hordoVasarlasGomb = hordoVasarlasGombId
   melyikHordoGomb = melyikHordoGombId
     const dollar = document.getElementById('$$$');
-    dialog.showModal();
+    megerosites.showModal();
     dollar.textContent = ar + "$";
 }
 const megerositoGomb = document.getElementById('megerositoGomb');
@@ -53,10 +53,10 @@ megerositoGomb.addEventListener('click', function(){
     if (szuloTd) {
       szuloTd.classList.add('feloldva');
     }
-    dialog.close();
+    megerosites.close();
   } else {
     alert("NINCS PENZ, MAKE MORE!!!")
-    dialog.close();
+    megerosites.close();
   }
 });
 
@@ -147,10 +147,9 @@ function gyartas(helyId, targyId) {
   }
 }
 
-gyartas('hely1')
 
-function erleles() {
-
-}
-
+const button = document.querySelector('.btn');
+button.addEventListener('click', function(){
+  window.location.href = 'masik.html';
+})
 

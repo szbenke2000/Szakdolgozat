@@ -1,5 +1,5 @@
-let inventory;
-inventory = document.getElementById('inv');
+
+let inventory = document.getElementById('inv');
 invLetrehozas(36);
 
 
@@ -17,7 +17,8 @@ function invLetrehozas(invSlotDbSzam) {
         <img style="height: ${slotKep.style.height}; width: ${slotKep.style.width}" src="${slotKep.src}" alt="">
         `;
 
-        rekeszbeTermeles();
+        kivalasztottTermeles();
+
         inventory.close();
       }
     });
@@ -59,6 +60,22 @@ ingyenPenzButton.addEventListener('click', function (){
 penzLevonasButton = document.getElementById('penzlevonas');
 penzLevonasButton.addEventListener('click', function (){
   penzhozzaadas(-20);
+})
+//DIALOGOK BEZÁRÁSÁNAK KÖNNYITÉSE
+//TÖKELETESEN MUKODIK
+document.querySelectorAll("dialog").forEach((el) => {
+  el.addEventListener('click', function (event) {
+  const rect = el.getBoundingClientRect();
+  const kivulKattintotte = (
+    event.clientY < rect.top ||
+    event.clientY > rect.bottom ||
+    event.clientX > rect.right ||
+    event.clientX < rect.left
+  )
+  if (kivulKattintotte) {
+    el.close();
+  }
+})
 })
 
 

@@ -1,5 +1,6 @@
 <!doctype html>
 <html class="no-js" lang="">
+<meta name="view-transition" content="same-origin" />
 <style>
   header{
 
@@ -133,6 +134,9 @@
     gap: 5px;
     justify-content: center;
   }
+  dialog::backdrop{
+
+  }
   .slot{
     width: 60px;
     height: 100px;
@@ -218,6 +222,12 @@
     background-repeat: no-repeat;
   }
   .rekesz{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 50px;
+    color: white;
     width: 140px;
     height: 100px;
     background-color: crimson;
@@ -232,12 +242,29 @@
     background-color: white;
     border-radius: 4px;
     border: 2px solid black;
+    justify-content: center;
+    align-items: center;
   }
   .rekeszEsGomb{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+  .progressBar{
+    display: flex;
+    align-items: center;
+    width: 130px;
+    height: 30px;
+    background-color: #222222;
+    border: 3px solid dimgray;
+    border-radius: 10px;
+  }
+  .progressBarBelso{
+    width: 0%;
+    height: 100%;
+    background-color: #4CAF50;
+    border-radius: 5px;
   }
 </style>
 <header>
@@ -288,13 +315,13 @@
   <dialog class="inventory-grid" id="inv">
       <button class="bezaroGombka" id="bezaroGomb"> X </button>
   </dialog>
-<dialog id="dialog">
+<dialog id="megerosites">
 <p>Meg akarod vásárolni a terméket?</p>
   <p id="$$$"></p>
   <button id="megerositoGomb">Vásárlás</button>
 </dialog>
 <footer>
-
+  <button class="btn"> SSAS</button>
   <button class="invGomb" id="invGomb"><img src="kepek/bakc_pack.png" alt=""></button>
 </footer>
   <script src="js/app.js"></script>

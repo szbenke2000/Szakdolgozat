@@ -28,36 +28,13 @@
   .body button:hover{
     cursor: pointer;
   }
-  .helyek{
-    table-layout: fixed;
-    border-collapse: separate;
-    border-spacing: 0;
-    overflow: hidden;
-    border: 2px solid white;
-    border-radius: 20px;
-    padding: 30px;
-    margin: auto;
-    font-family:Bahnschrift,serif;
-    background-color: brown;
-  }
-  .helyek td{
-    width: 100px;
-    height: 100px;
-    display: inline-flex;
-    font-size: 20px;
-    color: white;
-    border: 1px solid white;
-    border-radius: 10px;
-    background-color: #222222;
-    transition: 50ms;
-    padding: 30px 50px 30px 5px;
-  }
-  .helyek button:active{
-    background-color: #444444;
-    transition: 50ms;
-  }
   .rejtett{
     display: none !important;
+  }
+  .kontener{
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .erleles{
     top: 200px;
@@ -114,10 +91,6 @@
     color: #ffffff;
     text-shadow: 1px 1px 3px black;
   }
-  .kontener{
-    display: flex;
-    align-items: center;
-  }
   .inventory-grid{
     position: relative;
     border: 3px solid white;
@@ -133,9 +106,6 @@
     background-color: gray;
     gap: 5px;
     justify-content: center;
-  }
-  dialog::backdrop{
-
   }
   .slot{
     width: 60px;
@@ -175,7 +145,6 @@
     padding-left: 10px;
   }
   .helyek-grid{
-    top: 200px;
     margin: 0 auto;
     display: flex;
     column-gap: 30px;
@@ -186,7 +155,6 @@
     flex-direction: column;
     align-items: center;
     row-gap: 40px;
-
     border: 2px solid white;
     border-radius: 12px;
     padding: 15px 10px;
@@ -265,6 +233,13 @@
     height: 100%;
     background-color: #4CAF50;
     border-radius: 5px;
+  }
+  .oszlopVasarlasGomb{
+    border-radius: 10px;
+    border: 3px solid gray;
+    background-color: yellow;
+    height: 50px;
+    width: 50px;
   }
 </style>
 <header>

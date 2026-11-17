@@ -103,12 +103,7 @@ vasarlas2gomb.addEventListener('click', function(){
 vasarlas3gomb.addEventListener('click', function(){
   HordoVasarlas(45000, "vasarlas3", "erlelesGomb3", "visszaszamlalo3")
 })
-eladasGomb.addEventListener('click', function (){
-  penzErtek += szamlalo*2;
-  szamlalo = 0;
-  sorszamid.textContent = szamlalo;
-  penzMegjelenites.textContent = penzecske;
-})
+
 
 invSlotButton1= document.getElementById('invSlotButton1');
 invSlotButton2= document.getElementById('invSlotButton2');
@@ -132,8 +127,14 @@ function penzhozzaadas (ertek) {
   penzMegjelenites.textContent = penzErtek;
 }
 function penzLevonas (ertek) {
-  penzErtek -= ertek;
-  penzMegjelenites.textContent = penzErtek;
+
+
+  if (ertek > penzErtek) {
+    alert("NINCS PENZ")
+  } else {
+    penzErtek -= ertek;
+    penzMegjelenites.textContent = penzErtek;
+  }
 }
 
 const targy1 = document.getElementById('targy1');
